@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T3KLLKFN');</script>
+  <!-- End Google Tag Manager -->
+
+  <title>LifeAi | פיתוח מוצרי תוכנה ובינה מלאכותית</title>
+  <meta name="description" content="LifeAi - בית תוכנה ופיתוח פתרונות בינה מלאכותית, מערכות ניהול מתקדמות ואפליקציות חכמות. הכירו את מוצרי הדגל שלנו: DriveLog ו-Snap Translate.">
+  <meta name="keywords" content="LifeAi, DriveLog, Snap Translate, בינה מלאכותית, מורי נהיגה, תרגום מסך, תוכנה, Windows">
+  <meta name="author" content="LifeAi">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LifeAi">
+  <meta property="og:title" content="LifeAi | מוצרי תוכנה ובינה מלאכותית">
+  <meta property="og:description" content="פיתוח מוצרי תוכנה חכמים, מערכות ניהול ופתרונות AI מתקדמים. הכירו את DriveLog ו-Snap Translate.">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:locale" content="he_IL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LifeAi | מוצרי תוכנה ובינה מלאכותית">
+  <meta name="twitter:description" content="פיתוח מוצרי תוכנה חכמים ופתרונות AI מתקדמים.">
+  <meta name="twitter:image" content="images/logo.png">
+
+  <link rel="canonical" href="https://lifeai.ovh/">
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "LifeAi",
+        "url": "https://lifeai.ovh",
+        "logo": "images/logo.png",
+        "sameAs": [
+          "https://github.com/LifeAI-Dev"
+        ],
+        "description": "בית תוכנה ופיתוח פתרונות בינה מלאכותית, מערכות ניהול מתקדמות ואפליקציות חכמות."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "DriveLog",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Windows, Mobile",
+        "description": "מערכת ניהול חכמה למורי נהיגה הכוללת מעקב תלמידים, שיעורים, תשלומים וטסטים."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Snap Translate",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows 10, Windows 11",
+        "description": "תוכנת תרגום מסך חכמה לשולחן העבודה מבוססת AI עם זיהוי אופטי (OCR) ותרגום בזמן אמת."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- Google Fonts & Google Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3KLLKFN"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="ניווט ראשי">
+        <a href="index.html" class="brand-logo" title="LifeAi - דף הבית">
+          <div class="logo-avatar">
+            <img src="images/logo.png" alt="LifeAi Logo" width="40" height="40">
+          </div>
+          <span class="brand-name" dir="ltr">Life<span class="gradient-text">Ai</span></span>
+        </a>
+
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="#hero" class="nav-link active">דף הבית</a></li>
+          <li><a href="#projects" class="nav-link">מוצרים ופרויקטים</a></li>
+          <li><a href="#solutions" class="nav-link">פתרונות ויכולות</a></li>
+          <li><a href="about.html" class="nav-link">אודות</a></li>
+          <li><a href="contact.html" class="nav-link">צור קשר</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="https://github.com/LifeAI-Dev" target="_blank" rel="noopener noreferrer" class="nav-social-btn" title="GitHub - LifeAi" aria-label="GitHub Repository">
+            <svg viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="contact.html" class="btn btn-talk">
+            <span>דבר איתנו</span>
+            <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+          <button class="menu-toggle" aria-label="פתח תפריט" aria-expanded="false" aria-controls="nav-menu">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Hero Section with Interactive Neural Canvas -->
+    <section class="hero-section" id="hero">
+      <canvas id="hero-canvas"></canvas>
+      
+      <div class="container hero-content">
+        <div class="section-tag reveal">
+          <span class="dot"></span>
+          <span>חדשנות · פיתוח תוכנה · בינה מלאכותית</span>
+        </div>
+
+        <h1 class="hero-title reveal stagger-1">
+          מפתחים את <span class="gradient-text">התוכנה והמוצרים</span><br>
+          של הדור הבא
+        </h1>
+
+        <p class="hero-subtitle reveal stagger-2">
+          ב-<strong>LifeAi</strong> אנו יוצרים פתרונות תוכנה חכמים, אפליקציות שולחניות מתקדמות ומערכות מבוססות בינה מלאכותית שמשנות את הדרך שבה אנשים ועסקים עובדים.
+        </p>
+
+        <div class="hero-cta-group reveal stagger-3">
+          <a href="#projects" class="btn btn-primary">
+            <span>הכירו את המוצרים שלנו</span>
+            <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+          <a href="contact.html" class="btn btn-secondary">
+            <span>דברו איתנו</span>
+          </a>
+        </div>
+
+        <!-- Live Stats Counters -->
+        <div class="hero-stats reveal stagger-4" style="grid-template-columns: repeat(2, 1fr); max-width: 520px;">
+          <div class="stat-item">
+            <div class="stat-value counter-animate" data-target="100" data-decimal="false" data-suffix="%">0%</div>
+            <div class="stat-label">מחויבות לאיכות וחדשנות</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value counter-animate" data-target="2" data-decimal="false" data-suffix="+">0</div>
+            <div class="stat-label">מוצרי דגל בפיתוח פעיל</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects & Products Section -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag warm">
+            <span class="dot"></span>
+            <span>מוצרים בפיתוח</span>
+          </div>
+          <h2>מוצרי הדגל מבית <span class="gradient-text-warm">LifeAi</span></h2>
+          <p>הצצה למוצרים הטכנולוגיים שאנו מפתחים, המביאים פתרונות מדויקים וממוקדים לצרכים אמיתיים.</p>
+        </div>
+
+        <div class="projects-grid">
+          
+          <!-- Project 1: DriveLog -->
+          <div class="project-card reveal">
+            <div>
+              <div class="project-card-header">
+                <div class="project-logo-wrap" style="background: #ffffff; border-color: rgba(255, 107, 53, 0.4); padding: 2px;">
+                  <img src="images/DriveLog.jpg" alt="DriveLog Logo" width="76" height="76" style="border-radius: 12px; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06);">
+                </div>
+                <div class="project-badge-soon">
+                  <span class="badge-dot"></span>
+                  <span>בקרוב</span>
+                </div>
+              </div>
+
+              <div class="project-content">
+                <h3>DriveLog</h3>
+                <div class="project-subtitle">מערכת ניהול חכמה ומקיפה למורי נהיגה</div>
+                <p class="project-desc">
+                  פלטפורמת ניהול חדשנית שמרכזת את כל הפעילות של מורה הנהיגה במקום אחד: יומן שיעורים חכם ואוטומטי, מעקב תלמידים מלא, מעקב התקדמות ומוכנות לטסטים, וניהול תשלומים.
+                </p>
+
+                <ul class="project-features">
+                  <li>
+                    <span class="material-symbols-outlined feat-icon">check_circle</span>
+                    מעקב תלמידים אישי, כרטיס התקדמות ומדדי מוכנות לטסט
+                  </li>
+                  <li>
+                    <span class="material-symbols-outlined feat-icon">check_circle</span>
+                    יומן שיעורי נהיגה אינטראקטיבי ותזמון יעיל
+                  </li>
+                  <li>
+                    <span class="material-symbols-outlined feat-icon">check_circle</span>
+                    ניהול תורים, טסטים פנימיים וחיצוניים וסדר מופתי
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-tags">
+              <span class="project-tag">ניהול מורי נהיגה</span>
+              <span class="project-tag">מעקב תלמידים וטסטים</span>
+              <span class="project-tag">יומן שיעורים</span>
+              <span class="project-tag">בקרוב</span>
+            </div>
+
+            <div class="project-card-footer-action">
+              <div class="btn-soon" aria-disabled="true">
+                <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
+                <span>בקרוב</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Snap Translate -->
+          <div class="project-card warm-theme reveal stagger-1">
+            <div>
+              <div class="project-card-header">
+                <div class="project-logo-wrap" style="background: #ffffff; border-color: rgba(255, 107, 53, 0.4); padding: 4px;">
+                  <img src="images/Snap Translate.png" alt="Snap Translate Logo" width="76" height="76" style="border-radius: 12px; width: 100%; height: 100%; object-fit: contain; transform: scale(1.06);">
+                </div>
+                <div class="project-badge-soon">
+                  <span class="badge-dot"></span>
+                  <span>בקרוב</span>
+                </div>
+              </div>
+
+              <div class="project-content">
+                <h3>Snap Translate</h3>
+                <div class="project-subtitle">תרגום מסך מיידי מונע AI לסביבת Windows</div>
+                <p class="project-desc">
+                  מערכת מתקדמת לתרגום מסך בזמן אמת עם תאימות מלאה לווינדוס. מאפשרת לכידת כל אזור במסך בלחיצת כפתור ותרגום מהיר ומדויק מכל שפה באמצעות ראייה ממוחשבת ובינה מלאכותית.
+                </p>
+
+                <ul class="project-features">
+                  <li>
+                    <span class="material-symbols-outlined feat-icon">check_circle</span>
+                    תאימות מלאה וביצועים מהירים לסביבת Windows
+                  </li>
+                  <li>
+                    <span class="material-symbols-outlined feat-icon">check_circle</span>
+                    זיהוי טקסט ותרגום מיידי מכל תוכן במסך (AI OCR & Vision)
+                  </li>
+                  <li>
+                    <span class="material-symbols-outlined feat-icon">check_circle</span>
+                    קיצור מקשים גלובלי לצילום ותרגום מהיר
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-tags">
+              <span class="project-tag">Windows Desktop</span>
+              <span class="project-tag">AI OCR & Vision</span>
+              <span class="project-tag">תרגום מסך</span>
+              <span class="project-tag">בקרוב</span>
+            </div>
+
+            <div class="project-card-footer-action">
+              <div class="btn-soon" aria-disabled="true">
+                <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
+                <span>בקרוב</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid Solutions Section -->
+    <section class="bento-section" id="solutions">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag">
+            <span class="dot"></span>
+            <span>תחומי מומחיות</span>
+          </div>
+          <h2>טכנולוגיה שנבנית <span class="gradient-text">בדייקנות ובחדשנות</span></h2>
+          <p>היכולות הטכנולוגיות והפיתוחים שאנו מביאים לכל מוצר ופרויקט.</p>
+        </div>
+
+        <div class="bento-grid">
+          
+          <!-- Card 1: Custom Software & Apps (Wide) -->
+          <div class="bento-card col-span-8 reveal">
+            <div class="bento-card-header">
+              <div class="bento-icon-box">
+                <span class="material-symbols-outlined">desktop_windows</span>
+              </div>
+              <h3>פיתוח מוצרי תוכנה ואפליקציות שולחניות</h3>
+              <p>בניית אפליקציות מודרניות, מהירות ואמינות לסביבת Windows ו-Web, עם ממשק משתמש אלגנטי, חוויית משתמש מוקפדת וביצועים ללא פשרות.</p>
+            </div>
+            <div class="bento-card-footer">
+              <span class="bento-tag">Windows Applications</span>
+              <span class="bento-tag">Modern Web</span>
+              <span class="bento-tag">High Performance</span>
+            </div>
+          </div>
+
+          <!-- Card 2: AI & OCR (Warm Theme) -->
+          <div class="bento-card col-span-4 warm-theme reveal stagger-1">
+            <div class="bento-card-header">
+              <div class="bento-icon-box">
+                <span class="material-symbols-outlined">psychology</span>
+              </div>
+              <h3>ראייה ממוחשבת ו-AI</h3>
+              <p>שילוב מודלים מתקדמים של זיהוי תמונה, עיבוד שפה טבעית (NLP) ו-OCR לפעולות תרגום ועיבוד מידע מיידיות.</p>
+            </div>
+            <div class="bento-card-footer">
+              <span class="bento-tag">Vision AI</span>
+              <span class="bento-tag">OCR Tech</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Smart Management Systems -->
+          <div class="bento-card col-span-6 reveal stagger-2">
+            <div class="bento-card-header">
+              <div class="bento-icon-box">
+                <span class="material-symbols-outlined">dashboard_customize</span>
+              </div>
+              <h3>מערכות ניהול חכמות (CRM & SaaS)</h3>
+              <p>תכנון ופיתוח מערכות ייעודיות לניהול לקוחות, יומנים, מעקב התקדמות ותהליכים ייחודיים לבעלי מקצוע ועסקים.</p>
+            </div>
+            <div class="bento-card-footer">
+              <span class="bento-tag">Smart Workflow</span>
+              <span class="bento-tag">Productivity</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Security & Privacy -->
+          <div class="bento-card col-span-6 warm-theme reveal stagger-3">
+            <div class="bento-card-header">
+              <div class="bento-icon-box">
+                <span class="material-symbols-outlined">shield</span>
+              </div>
+              <h3>אבטחת מידע ופרטיות</h3>
+              <p>הקפדה מלאה על שמירת פרטיות המשתמשים, הגנה על נתונים אישיים וסודיות מלאה בכל תוכנה ומערכת שאנו מפתחים.</p>
+            </div>
+            <div class="bento-card-footer">
+              <span class="bento-tag">Data Privacy</span>
+              <span class="bento-tag">Secure Architecture</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works / Process Section -->
+    <section class="process-section" id="process">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag">
+            <span class="dot"></span>
+            <span>מתודולוגיה</span>
+          </div>
+          <h2>מתודולוגיית הפיתוח ב-<span class="gradient-text">LifeAi</span></h2>
+          <p>כך אנחנו מתכננים ומפתחים מוצרים מדויקים ואמינים.</p>
+        </div>
+
+        <div class="process-grid">
+          <!-- Step 1 -->
+          <div class="process-card reveal">
+            <div class="step-number">01</div>
+            <div class="process-icon">
+              <span class="material-symbols-outlined">track_changes</span>
+            </div>
+            <h3>אפיון צורך ומחקר מעמיק</h3>
+            <p>זיהוי בעיות אמיתיות בשטח, הבנת קהל היעד והגדרת ארכיטקטורת מוצר ברורה וממוקדת תוצאות.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-card reveal stagger-1">
+            <div class="step-number">02</div>
+            <div class="process-icon">
+              <span class="material-symbols-outlined">code_blocks</span>
+            </div>
+            <h3>פיתוח, איטרציה ו-AI</h3>
+            <p>כתיבת קוד נקי, שילוב מנועי בינה מלאכותית ובדיקות קפדניות לחוויית משתמש חלקה ומהירה.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-card reveal stagger-2">
+            <div class="step-number">03</div>
+            <div class="process-icon">
+              <span class="material-symbols-outlined">rocket_launch</span>
+            </div>
+            <h3>השקה ושיפור מתמיד</h3>
+            <p>שחרור גרסאות יציבות, קבלת משוב מהמשתמשים ושדרוג שוטף של יכולות המערכת.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>רוצים לשמוע עוד או לשתף פעולה?</h2>
+          <p>אנחנו תמיד שמחים להכיר, לייעץ ולבחון פרויקטים טכנולוגיים מעניינים ושיתופי פעולה.</p>
+          
+          <div class="cta-buttons">
+            <a href="contact.html" class="btn btn-primary">
+              <span>דבר איתנו עכשיו</span>
+              <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            <a href="about.html" class="btn btn-secondary">
+              <span>עוד על החברה</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" title="LifeAi">
+            <div class="logo-avatar" style="width: 38px; height: 38px;">
+              <img src="images/logo.png" alt="LifeAi Logo" width="34" height="34">
+            </div>
+            <span class="brand-name" dir="ltr">Life<span class="gradient-text">Ai</span></span>
+          </a>
+          <p>פיתוח מוצרי תוכנה מתקדמים, יישומי שולחן עבודה ופתרונות בינה מלאכותית חכמים.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h4>ניווט מהיר</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">דף הבית</a></li>
+            <li><a href="#projects">מוצרים ופרויקטים</a></li>
+            <li><a href="#solutions">יכולות ופתרונות</a></li>
+            <li><a href="about.html">אודות החברה</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Links -->
+        <div class="footer-column">
+          <h4>משפטי ומידע</h4>
+          <ul class="footer-links">
+            <li><a href="privacy.html">מדיניות פרטיות</a></li>
+            <li><a href="terms.html">תנאי שימוש</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Quick -->
+        <div class="footer-column">
+          <h4>יצירת קשר</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:contact@lifeai.ovh">contact@lifeai.ovh</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 LifeAi. כל הזכויות שמורות.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Quick Actions -->
+  <div class="floating-actions" aria-label="פעולות מהירות">
+    <a href="contact.html" class="float-btn float-contact" title="יצירת קשר" aria-label="יצירת קשר">
+      <span class="material-symbols-outlined">mail</span>
+    </a>
+    <button class="float-btn scroll-top" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
