@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
    0. Progressive Enhancement for Local File Testing
    --------------------------------------------------------- */
 function initLocalFileLinks() {
-  if (window.location.protocol === 'file:') {
+  const isStaticHost = window.location.protocol === 'file:' || window.location.hostname.includes('github.io');
+  if (isStaticHost) {
     document.querySelectorAll('a[href]').forEach(link => {
       const href = link.getAttribute('href');
       if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.endsWith('.html')) {
