@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://lifeai.ovh/</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lifeai.ovh/images/logo.png</image:loc>
+      <image:title>LifeAi Logo</image:title>
+      <image:caption>LifeAi - בית תוכנה ופיתוח פתרונות בינה מלאכותית</image:caption>
+    </image:image>
+  </url>
+
+  <!-- DriveLog Dedicated Page -->
+  <url>
+    <loc>https://lifeai.ovh/drivelog</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://lifeai.ovh/images/DriveLog.jpg</image:loc>
+      <image:title>DriveLog Logo</image:title>
+      <image:caption>DriveLog - סוכן קולי AI וניהול יומן למורי נהיגה</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://lifeai.ovh/contact</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://lifeai.ovh/about</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://lifeai.ovh/privacy</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://lifeai.ovh/terms</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
+</urlset>

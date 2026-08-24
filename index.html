@@ -14,23 +14,28 @@
 
   <title>LifeAi | פיתוח מוצרי תוכנה ובינה מלאכותית</title>
   <meta name="description" content="LifeAi - בית תוכנה ופיתוח פתרונות בינה מלאכותית, מערכות ניהול מתקדמות ואפליקציות חכמות. הכירו את מוצרי הדגל שלנו: DriveLog ו-Snap Translate.">
-  <meta name="keywords" content="LifeAi, DriveLog, Snap Translate, בינה מלאכותית, מורי נהיגה, תרגום מסך, תוכנה, Windows">
+  <meta name="keywords" content="LifeAi, DriveLog, Snap Translate, בינה מלאכותית, פיתוח תוכנה, מורי נהיגה, יומן מורי נהיגה, תרגום מסך, יישומי Windows, סוכן קולי AI">
   <meta name="author" content="LifeAi">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#07090e">
   
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="LifeAi">
-  <meta property="og:title" content="LifeAi | מוצרי תוכנה ובינה מלאכותית">
-  <meta property="og:description" content="פיתוח מוצרי תוכנה חכמים, מערכות ניהול ופתרונות AI מתקדמים. הכירו את DriveLog ו-Snap Translate.">
-  <meta property="og:image" content="images/logo.png">
+  <meta property="og:url" content="https://lifeai.ovh/">
+  <meta property="og:title" content="LifeAi | פיתוח מוצרי תוכנה ובינה מלאכותית">
+  <meta property="og:description" content="פיתוח מוצרי תוכנה חכמים, מערכות ניהול ופתרונות AI מתקדמים. הכירו את מוצרי הדגל שלנו: DriveLog ו-Snap Translate.">
+  <meta property="og:image" content="https://lifeai.ovh/images/logo.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="LifeAi Logo">
   <meta property="og:locale" content="he_IL">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LifeAi | מוצרי תוכנה ובינה מלאכותית">
+  <meta name="twitter:title" content="LifeAi | פיתוח מוצרי תוכנה ובינה מלאכותית">
   <meta name="twitter:description" content="פיתוח מוצרי תוכנה חכמים ופתרונות AI מתקדמים.">
-  <meta name="twitter:image" content="images/logo.png">
+  <meta name="twitter:image" content="https://lifeai.ovh/images/logo.png">
 
   <link rel="canonical" href="https://lifeai.ovh/">
 
@@ -41,27 +46,60 @@
     "@graph": [
       {
         "@type": "Organization",
+        "@id": "https://lifeai.ovh/#organization",
         "name": "LifeAi",
         "url": "https://lifeai.ovh",
-        "logo": "images/logo.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://lifeai.ovh/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "email": "contact@lifeai.ovh",
         "sameAs": [
           "https://github.com/LifeAI-Dev"
         ],
         "description": "בית תוכנה ופיתוח פתרונות בינה מלאכותית, מערכות ניהול מתקדמות ואפליקציות חכמות."
       },
       {
+        "@type": "WebSite",
+        "@id": "https://lifeai.ovh/#website",
+        "url": "https://lifeai.ovh",
+        "name": "LifeAi",
+        "description": "פיתוח מוצרי תוכנה ובינה מלאכותית",
+        "publisher": {
+          "@id": "https://lifeai.ovh/#organization"
+        },
+        "inLanguage": "he-IL"
+      },
+      {
         "@type": "SoftwareApplication",
         "name": "DriveLog",
+        "url": "https://lifeai.ovh/drivelog",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web, Windows, Mobile",
-        "description": "מערכת ניהול חכמה למורי נהיגה הכוללת מעקב תלמידים, שיעורים, תשלומים וטסטים."
+        "description": "מערכת ניהול חכמה ומקיפה למורי נהיגה עם סוכן קולי AI לתיאום שיעורים וניהול יומן ללא מגע יד בזמן נהיגה.",
+        "image": "https://lifeai.ovh/images/DriveLog.jpg",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "ILS",
+          "availability": "https://schema.org/PreOrder"
+        }
       },
       {
         "@type": "SoftwareApplication",
         "name": "Snap Translate",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Windows 10, Windows 11",
-        "description": "תוכנת תרגום מסך חכמה לשולחן העבודה מבוססת AI עם זיהוי אופטי (OCR) ותרגום בזמן אמת."
+        "description": "תוכנת תרגום מסך חכמה לשולחן העבודה מבוססת AI עם זיהוי אופטי (OCR) ותרגום בזמן אמת.",
+        "image": "https://lifeai.ovh/images/Snap%20Translate.png",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "ILS",
+          "availability": "https://schema.org/PreOrder"
+        }
       }
     ]
   }
@@ -73,6 +111,8 @@
 
   <!-- Google Fonts & Google Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -103,7 +143,28 @@
 
         <ul class="nav-links" id="nav-menu">
           <li><a href="#hero" class="nav-link active">דף הבית</a></li>
-          <li><a href="#projects" class="nav-link">מוצרים ופרויקטים</a></li>
+          <li class="nav-item-dropdown">
+            <a href="#projects" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              <span>מוצרים ופרויקטים</span>
+              <span class="material-symbols-outlined dropdown-arrow">expand_more</span>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="drivelog" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <img src="images/DriveLog.jpg" alt="DriveLog Logo" width="32" height="32">
+                </div>
+                <div class="dropdown-item-text">
+                  <span class="dropdown-item-title">DriveLog <span class="badge-mini-soon">בקרוב</span></span>
+                  <span class="dropdown-item-desc">סוכן קולי AI וניהול יומן למורי נהיגה</span>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#projects" class="dropdown-all-link">
+                <span>לכל המוצרים והפרויקטים</span>
+                <span class="material-symbols-outlined" style="font-size: 16px;">arrow_left</span>
+              </a>
+            </div>
+          </li>
           <li><a href="#solutions" class="nav-link">פתרונות ויכולות</a></li>
           <li><a href="about" class="nav-link">אודות</a></li>
           <li><a href="contact" class="nav-link">צור קשר</a></li>
@@ -122,7 +183,7 @@
             </svg>
           </a>
           <button class="menu-toggle" aria-label="פתח תפריט" aria-expanded="false" aria-controls="nav-menu">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
           </button>
@@ -198,7 +259,7 @@
             <div>
               <div class="project-card-header">
                 <div class="project-logo-wrap" style="background: #ffffff; border-color: rgba(255, 107, 53, 0.4); padding: 2px;">
-                  <img src="images/DriveLog.jpg" alt="DriveLog Logo" width="76" height="76" style="border-radius: 12px; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06);">
+                  <img src="images/DriveLog.jpg" alt="DriveLog - סוכן קולי AI וניהול יומן למורי נהיגה" width="76" height="76" loading="lazy" decoding="async" style="border-radius: 12px; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06);">
                 </div>
                 <div class="project-badge-soon">
                   <span class="badge-dot"></span>
@@ -208,40 +269,42 @@
 
               <div class="project-content">
                 <h3>DriveLog</h3>
-                <div class="project-subtitle">מערכת ניהול חכמה ומקיפה למורי נהיגה</div>
+                <div class="project-subtitle">מערכת ניהול חכמה וסוכן קולי AI למורי נהיגה</div>
                 <p class="project-desc">
-                  פלטפורמת ניהול חדשנית שמרכזת את כל הפעילות של מורה הנהיגה במקום אחד: יומן שיעורים חכם ואוטומטי, מעקב תלמידים מלא, מעקב התקדמות ומוכנות לטסטים, וניהול תשלומים.
+                  פלטפורמת ניהול חדשנית שמרכזת את כל הפעילות של מורה הנהיגה במקום אחד: סוכן קולי AI לתיאום שיעורים ללא מגע יד בזמן נהיגה, יומן חכם ופשוט, ומעקב תלמידים וטסטים.
                 </p>
 
                 <ul class="project-features">
                   <li>
                     <span class="material-symbols-outlined feat-icon">check_circle</span>
+                    סוכן קולי מבוסס AI לשיבוץ וניהול שיעורים ללא מגע מסך
+                  </li>
+                  <li>
+                    <span class="material-symbols-outlined feat-icon">check_circle</span>
+                    יומן שיעורי נהיגה פשוט, אינטואיטיבי ומהיר
+                  </li>
+                  <li>
+                    <span class="material-symbols-outlined feat-icon">check_circle</span>
                     מעקב תלמידים אישי, כרטיס התקדמות ומדדי מוכנות לטסט
-                  </li>
-                  <li>
-                    <span class="material-symbols-outlined feat-icon">check_circle</span>
-                    יומן שיעורי נהיגה אינטראקטיבי ותזמון יעיל
-                  </li>
-                  <li>
-                    <span class="material-symbols-outlined feat-icon">check_circle</span>
-                    ניהול תורים, טסטים פנימיים וחיצוניים וסדר מופתי
                   </li>
                 </ul>
               </div>
             </div>
 
             <div class="project-tags">
-              <span class="project-tag">ניהול מורי נהיגה</span>
-              <span class="project-tag">מעקב תלמידים וטסטים</span>
+              <span class="project-tag">סוכן קולי AI</span>
+              <span class="project-tag">מורי נהיגה</span>
               <span class="project-tag">יומן שיעורים</span>
               <span class="project-tag">בקרוב</span>
             </div>
 
             <div class="project-card-footer-action">
-              <div class="btn-soon" aria-disabled="true">
-                <span class="material-symbols-outlined" style="font-size: 18px;">schedule</span>
-                <span>בקרוב</span>
-              </div>
+              <a href="drivelog" class="btn btn-primary" style="width: 100%; justify-content: center; gap: 8px; text-decoration: none; padding: 11px 18px; font-weight: 700;" title="מעבר לעמוד המלא של DriveLog">
+                <span>לפרטי המערכת של DriveLog</span>
+                <svg class="btn-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 18px; height: 18px;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -250,7 +313,7 @@
             <div>
               <div class="project-card-header">
                 <div class="project-logo-wrap" style="background: #ffffff; border-color: rgba(255, 107, 53, 0.4); padding: 4px;">
-                  <img src="images/Snap Translate.png" alt="Snap Translate Logo" width="76" height="76" style="border-radius: 12px; width: 100%; height: 100%; object-fit: contain; transform: scale(1.06);">
+                  <img src="images/Snap Translate.png" alt="Snap Translate - תוכנת תרגום מסך AI ל-Windows" width="76" height="76" loading="lazy" decoding="async" style="border-radius: 12px; width: 100%; height: 100%; object-fit: contain; transform: scale(1.06);">
                 </div>
                 <div class="project-badge-soon">
                   <span class="badge-dot"></span>
@@ -459,7 +522,7 @@
         <div class="footer-brand">
           <a href="./" class="brand-logo" title="LifeAi">
             <div class="logo-avatar" style="width: 38px; height: 38px;">
-              <img src="images/logo.png" alt="LifeAi Logo" width="34" height="34">
+              <img src="images/logo.png" alt="LifeAi Logo" width="34" height="34" loading="lazy" decoding="async">
             </div>
             <span class="brand-name" dir="ltr">Life<span class="gradient-text">Ai</span></span>
           </a>
@@ -472,7 +535,7 @@
           <ul class="footer-links">
             <li><a href="#hero">דף הבית</a></li>
             <li><a href="#projects">מוצרים ופרויקטים</a></li>
-            <li><a href="#solutions">יכולות ופתרונות</a></li>
+            <li><a href="drivelog">DriveLog</a></li>
             <li><a href="about">אודות החברה</a></li>
             <li><a href="contact">צור קשר</a></li>
           </ul>

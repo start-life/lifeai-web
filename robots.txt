@@ -1,0 +1,6 @@
+# Robots.txt for LifeAi (https://lifeai.ovh)
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://lifeai.ovh/sitemap.xml

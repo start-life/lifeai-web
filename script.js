@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initLocalFileLinks();
   initScrollProgress();
   initHeader();
   initHeroCanvas();
@@ -14,9 +15,30 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initCopyEmail();
   initMobileMenu();
+  initDropdownMenus();
   initScrollTop();
   initCookieConsent();
 });
+
+/* ---------------------------------------------------------
+   0. Progressive Enhancement for Local File Testing
+   --------------------------------------------------------- */
+function initLocalFileLinks() {
+  if (window.location.protocol === 'file:') {
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.endsWith('.html')) {
+        if (href === './' || href === '/') {
+          link.setAttribute('href', 'index.html');
+        } else if (href.startsWith('./#') || href.startsWith('/#')) {
+          link.setAttribute('href', 'index.html' + href.substring(href.indexOf('#')));
+        } else {
+          link.setAttribute('href', href.replace(/\/$/, '') + '.html');
+        }
+      }
+    });
+  }
+}
 
 /* ---------------------------------------------------------
    1. Scroll Progress Bar
@@ -497,7 +519,7 @@ function initFaqAccordion() {
 }
 
 /* ---------------------------------------------------------
-   9. Mobile Navigation Toggle
+   9. Mobile Navigation & Dropdown Toggle
    --------------------------------------------------------- */
 function initMobileMenu() {
   const toggleBtn = document.querySelector('.menu-toggle');
@@ -510,15 +532,64 @@ function initMobileMenu() {
     toggleBtn.setAttribute('aria-expanded', isExpanded);
   });
 
-  navLinks.querySelectorAll('a').forEach(link => {
+  navLinks.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
+      toggleBtn.setAttribute('aria-expanded', 'false');
     });
   });
 
   document.addEventListener('click', (e) => {
     if (!toggleBtn.contains(e.target) && !navLinks.contains(e.target)) {
       navLinks.classList.remove('active');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+function initDropdownMenus() {
+  const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
+  if (!dropdownItems.length) return;
+
+  dropdownItems.forEach(item => {
+    const toggle = item.querySelector('.dropdown-toggle');
+    if (!toggle) return;
+
+    let closeTimeout = null;
+
+    // Smooth hover with grace delay on desktop
+    item.addEventListener('mouseenter', () => {
+      if (closeTimeout) clearTimeout(closeTimeout);
+      item.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+    });
+
+    item.addEventListener('mouseleave', () => {
+      closeTimeout = setTimeout(() => {
+        item.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }, 150);
+    });
+
+    // Click / touch toggle
+    toggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const willOpen = !item.classList.contains('is-open');
+        item.classList.toggle('is-open', willOpen);
+        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      }
+    });
+  });
+
+  // Close dropdown if clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-item-dropdown')) {
+      dropdownItems.forEach(item => {
+        item.classList.remove('is-open');
+        const toggle = item.querySelector('.dropdown-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      });
     }
   });
 }
