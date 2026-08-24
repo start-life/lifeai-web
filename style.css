@@ -141,6 +141,19 @@ button, input, textarea, select {
   background: none;
 }
 
+/* Accessibility Focus Styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible,
+.nav-link:focus-visible,
+.float-btn:focus-visible {
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
 /* Scroll Progress Bar */
 #scroll-progress {
   position: fixed;
@@ -1936,12 +1949,23 @@ h1, h2, h3, h4, h5, h6 {
     position: static;
     width: 100%;
     transform: none;
-    opacity: 1;
-    visibility: visible;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
     box-shadow: none;
-    margin-top: 6px;
+    margin-top: 8px;
+    padding: 8px;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .nav-item-dropdown.is-open .nav-dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
     pointer-events: auto;
   }
   

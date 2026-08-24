@@ -85,22 +85,37 @@ function initHeroCanvas() {
 
   const ctx = canvas.getContext('2d');
   let width, height;
+  let dpr = 1;
   let particles = [];
   let signals = [];
   let shockwaves = [];
   let mouse = { x: null, y: null, radius: 150, active: false };
 
   const resize = () => {
-    width = canvas.width = canvas.parentElement.offsetWidth || window.innerWidth;
-    height = canvas.height = canvas.parentElement.offsetHeight || window.innerHeight;
+    dpr = Math.min(window.devicePixelRatio || 1, 2); // Cap at 2x to balance Retina sharpness and GPU/battery efficiency
+    const parent = canvas.parentElement;
+    width = parent ? parent.offsetWidth : window.innerWidth;
+    height = parent ? parent.offsetHeight : window.innerHeight;
+
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    if (ctx.setTransform) {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    } else {
+      ctx.scale(dpr, dpr);
+    }
+
     createParticles();
   };
 
   const createParticles = () => {
     particles = [];
-    // Dynamic density
-    const baseCount = Math.floor((width * height) / 10000);
-    const count = Math.min(Math.max(baseCount, 35), 85);
+    // Dynamic density based on logical resolution
+    const baseCount = Math.floor((width * height) / 11000);
+    const count = Math.min(Math.max(baseCount, 30), 80);
 
     for (let i = 0; i < count; i++) {
       const rand = Math.random();
@@ -115,8 +130,8 @@ function initHeroCanvas() {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * (isHub ? 0.6 : 0.9),
-        vy: (Math.random() - 0.5) * (isHub ? 0.6 : 0.9),
+        vx: (Math.random() - 0.5) * (isHub ? 0.5 : 0.8),
+        vy: (Math.random() - 0.5) * (isHub ? 0.5 : 0.8),
         baseRadius: baseRadius,
         radius: baseRadius,
         color: color,
@@ -129,7 +144,8 @@ function initHeroCanvas() {
     }
   };
 
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('orientationchange', () => setTimeout(resize, 100), { passive: true });
   resize();
 
   // Mouse & Touch Tracking
@@ -140,7 +156,7 @@ function initHeroCanvas() {
     mouse.active = true;
   };
 
-  window.addEventListener('mousemove', (e) => updateMouse(e.clientX, e.clientY));
+  window.addEventListener('mousemove', (e) => updateMouse(e.clientX, e.clientY), { passive: true });
   window.addEventListener('touchmove', (e) => {
     if (e.touches && e.touches[0]) {
       updateMouse(e.touches[0].clientX, e.touches[0].clientY);
@@ -153,8 +169,8 @@ function initHeroCanvas() {
     mouse.active = false;
   };
 
-  window.addEventListener('mouseleave', clearMouse);
-  window.addEventListener('touchend', clearMouse);
+  window.addEventListener('mouseleave', clearMouse, { passive: true });
+  window.addEventListener('touchend', clearMouse, { passive: true });
 
   // Click / Tap Interactive Shockwave Burst
   const triggerShockwave = (clientX, clientY) => {
@@ -175,7 +191,7 @@ function initHeroCanvas() {
     particles.forEach(p => {
       const dx = p.x - x;
       const dy = p.y - y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
+      const dist = Math.hypot(dx, dy);
       if (dist < 180 && dist > 1) {
         const force = (180 - dist) / 180;
         p.vx += (dx / dist) * force * 5;
@@ -256,8 +272,8 @@ function initHeroCanvas() {
       p.vy *= 0.985;
 
       // Ensure minimum baseline drift
-      if (Math.abs(p.vx) < 0.2) p.vx += (Math.random() - 0.5) * 0.15;
-      if (Math.abs(p.vy) < 0.2) p.vy += (Math.random() - 0.5) * 0.15;
+      if (Math.abs(p.vx) < 0.18) p.vx += (Math.random() - 0.5) * 0.15;
+      if (Math.abs(p.vy) < 0.18) p.vy += (Math.random() - 0.5) * 0.15;
 
       // Bounce smoothly on borders
       if (p.x < 10) { p.x = 10; p.vx = Math.abs(p.vx); }
@@ -269,7 +285,7 @@ function initHeroCanvas() {
       if (mouse.active && mouse.x !== null && mouse.y !== null) {
         const dx = mouse.x - p.x;
         const dy = mouse.y - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+        const dist = Math.hypot(dx, dy);
 
         if (dist < mouse.radius) {
           const force = (mouse.radius - dist) / mouse.radius;
@@ -305,7 +321,7 @@ function initHeroCanvas() {
         const p2 = particles[j];
         const dx = p.x - p2.x;
         const dy = p.y - p2.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+        const dist = Math.hypot(dx, dy);
 
         const maxDist = 125;
         if (dist < maxDist) {
@@ -416,7 +432,9 @@ function initNumberCounters() {
         const suffix = target.getAttribute('data-suffix') || '';
         const isDecimal = target.getAttribute('data-decimal') === 'true';
         let current = 0;
-        const duration = 1500;
+        
+        // Scale duration smoothly: smaller integers animate snappier
+        const duration = targetValue <= 5 ? 800 : (targetValue <= 20 ? 1100 : 1500);
         const startTime = performance.now();
 
         const updateCounter = (currentTime) => {
@@ -449,9 +467,10 @@ function initNumberCounters() {
    7. Dynamic ScrollSpy (Active Navigation Highlighting)
    --------------------------------------------------------- */
 function initScrollSpy() {
+  // Only activate ScrollSpy if there are target in-page sections on this document
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  if (!sections.length || !navLinks.length) return;
+  const inPageNavLinks = document.querySelectorAll('.nav-links a[href^="#"], .nav-links a[href^="./#"]');
+  if (!sections.length || !inPageNavLinks.length) return;
 
   const onScroll = () => {
     const scrollPos = window.scrollY + 140; // Offset for fixed navbar
@@ -462,10 +481,10 @@ function initScrollSpy() {
       const id = section.getAttribute('id');
 
       if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach(link => {
+        inPageNavLinks.forEach(link => {
           const href = link.getAttribute('href');
-          if (href === `#${id}` || href === `index.html#${id}` || (id === 'hero' && (href === 'index.html' || href === '#hero'))) {
-            navLinks.forEach(l => l.classList.remove('active'));
+          if (href === `#${id}` || href === `./#${id}` || href === `index.html#${id}` || (id === 'hero' && (href === 'index.html' || href === '#hero' || href === './'))) {
+            inPageNavLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
           }
         });
@@ -485,7 +504,6 @@ function initFaqAccordion() {
   if (!faqItems.length) return;
 
   faqItems.forEach(item => {
-    // Ensure initially closed
     item.classList.remove('faq-open');
     
     const trigger = item.querySelector('.faq-trigger');
@@ -527,23 +545,36 @@ function initMobileMenu() {
   const navLinks = document.querySelector('.nav-links');
   if (!toggleBtn || !navLinks) return;
 
+  const closeMenu = () => {
+    navLinks.classList.remove('active');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    document.querySelectorAll('.nav-item-dropdown.is-open').forEach(d => {
+      d.classList.remove('is-open');
+      d.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+  };
+
   toggleBtn.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     const isExpanded = navLinks.classList.contains('active');
     toggleBtn.setAttribute('aria-expanded', isExpanded);
+    if (!isExpanded) {
+      document.querySelectorAll('.nav-item-dropdown.is-open').forEach(d => {
+        d.classList.remove('is-open');
+        d.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+    }
   });
 
   navLinks.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      toggleBtn.setAttribute('aria-expanded', 'false');
+      closeMenu();
     });
   });
 
   document.addEventListener('click', (e) => {
     if (!toggleBtn.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove('active');
-      toggleBtn.setAttribute('aria-expanded', 'false');
+      closeMenu();
     }
   });
 }
@@ -552,31 +583,50 @@ function initDropdownMenus() {
   const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
   if (!dropdownItems.length) return;
 
+  // Detect touch/pointer capabilities
+  const isTouchCapable = () => 
+    (window.matchMedia && window.matchMedia('(hover: none)').matches) || 
+    (navigator.maxTouchPoints > 0) || 
+    ('ontouchstart' in window);
+
   dropdownItems.forEach(item => {
     const toggle = item.querySelector('.dropdown-toggle');
     if (!toggle) return;
 
     let closeTimeout = null;
 
-    // Smooth hover with grace delay on desktop
+    // Desktop hover behavior (only when hover is supported and viewport is wide)
     item.addEventListener('mouseenter', () => {
-      if (closeTimeout) clearTimeout(closeTimeout);
-      item.classList.add('is-open');
-      toggle.setAttribute('aria-expanded', 'true');
+      if (!isTouchCapable() && window.innerWidth > 768) {
+        if (closeTimeout) clearTimeout(closeTimeout);
+        item.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
     });
 
     item.addEventListener('mouseleave', () => {
-      closeTimeout = setTimeout(() => {
-        item.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }, 150);
+      if (!isTouchCapable() && window.innerWidth > 768) {
+        closeTimeout = setTimeout(() => {
+          item.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }, 150);
+      }
     });
 
-    // Click / touch toggle
+    // Touch & Click toggle behavior for mobile, tablets, and touchscreens
     toggle.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
+      if (isTouchCapable() || window.innerWidth <= 768) {
         e.preventDefault();
         const willOpen = !item.classList.contains('is-open');
+        
+        // Close siblings
+        dropdownItems.forEach(other => {
+          if (other !== item) {
+            other.classList.remove('is-open');
+            other.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+          }
+        });
+
         item.classList.toggle('is-open', willOpen);
         toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
       }
@@ -711,6 +761,9 @@ function initCookieConsent() {
   `;
 
   document.body.appendChild(banner);
+
+  // Ensure dynamic links inside the newly injected banner are resolved properly in static/local environments
+  initLocalFileLinks();
 
   // Smooth entry animation after a brief delay
   setTimeout(() => {
