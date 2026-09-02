@@ -172,8 +172,23 @@ function initHeroCanvas() {
   window.addEventListener('mouseleave', clearMouse, { passive: true });
   window.addEventListener('touchend', clearMouse, { passive: true });
 
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let isReducedMotion = motionQuery.matches;
+  if (motionQuery.addEventListener) {
+    motionQuery.addEventListener('change', (e) => {
+      isReducedMotion = e.matches;
+      if (isReducedMotion && animFrameId) {
+        cancelAnimationFrame(animFrameId);
+        animFrameId = null;
+      } else if (!isReducedMotion && isVisible && !animFrameId) {
+        animFrameId = requestAnimationFrame(animate);
+      }
+    });
+  }
+
   // Click / Tap Interactive Shockwave Burst
   const triggerShockwave = (clientX, clientY) => {
+    if (isReducedMotion) return;
     const rect = canvas.getBoundingClientRect();
     const x = clientX - rect.left;
     const y = clientY - rect.top;
@@ -208,7 +223,7 @@ function initHeroCanvas() {
 
   // Animation Loop
   const animate = () => {
-    if (!isVisible) {
+    if (!isVisible || isReducedMotion) {
       animFrameId = null;
       return;
     }
